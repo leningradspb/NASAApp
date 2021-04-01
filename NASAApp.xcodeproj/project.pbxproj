@@ -9,19 +9,23 @@
 /* Begin PBXBuildFile section */
 		26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */; };
 		26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */; };
-		26EBADBE2615CE4A00FA31F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBD2615CE4A00FA31F5 /* ViewController.swift */; };
+		26EBADBE2615CE4A00FA31F5 /* PictureOfDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBD2615CE4A00FA31F5 /* PictureOfDayVC.swift */; };
 		26EBADC32615CE4A00FA31F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EBADC22615CE4A00FA31F5 /* Assets.xcassets */; };
 		26EBADC62615CE4A00FA31F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26EBADC42615CE4A00FA31F5 /* LaunchScreen.storyboard */; };
+		26EBADD12615D33A00FA31F5 /* NASATabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADD02615D33A00FA31F5 /* NASATabBarVC.swift */; };
+		26EBADDA2615D40E00FA31F5 /* TabBarNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADD92615D40E00FA31F5 /* TabBarNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26EBADB62615CE4A00FA31F5 /* NASAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		26EBADBD2615CE4A00FA31F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26EBADBD2615CE4A00FA31F5 /* PictureOfDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayVC.swift; sourceTree = "<group>"; };
 		26EBADC22615CE4A00FA31F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26EBADC52615CE4A00FA31F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26EBADC72615CE4A00FA31F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26EBADD02615D33A00FA31F5 /* NASATabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASATabBarVC.swift; sourceTree = "<group>"; };
+		26EBADD92615D40E00FA31F5 /* TabBarNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +60,38 @@
 			children = (
 				26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */,
 				26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */,
-				26EBADBD2615CE4A00FA31F5 /* ViewController.swift */,
+				26EBADD42615D3D800FA31F5 /* Modules */,
+				26EBADD72615D3F600FA31F5 /* TabBar */,
 				26EBADC22615CE4A00FA31F5 /* Assets.xcassets */,
 				26EBADC42615CE4A00FA31F5 /* LaunchScreen.storyboard */,
 				26EBADC72615CE4A00FA31F5 /* Info.plist */,
 			);
 			path = NASAApp;
+			sourceTree = "<group>";
+		};
+		26EBADD42615D3D800FA31F5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				26EBADD52615D3E900FA31F5 /* PictureOfDay */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		26EBADD52615D3E900FA31F5 /* PictureOfDay */ = {
+			isa = PBXGroup;
+			children = (
+				26EBADBD2615CE4A00FA31F5 /* PictureOfDayVC.swift */,
+			);
+			path = PictureOfDay;
+			sourceTree = "<group>";
+		};
+		26EBADD72615D3F600FA31F5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				26EBADD02615D33A00FA31F5 /* NASATabBarVC.swift */,
+				26EBADD92615D40E00FA31F5 /* TabBarNames.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26EBADBE2615CE4A00FA31F5 /* ViewController.swift in Sources */,
+				26EBADDA2615D40E00FA31F5 /* TabBarNames.swift in Sources */,
+				26EBADBE2615CE4A00FA31F5 /* PictureOfDayVC.swift in Sources */,
+				26EBADD12615D33A00FA31F5 /* NASATabBarVC.swift in Sources */,
 				26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */,
 				26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */,
 			);
