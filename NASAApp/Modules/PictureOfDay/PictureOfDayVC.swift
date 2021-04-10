@@ -17,6 +17,7 @@ class PictureOfDayVC: UIViewController {
     
     private let apiService = ApiService()
     private var pictures: [PictureOfDayModel]?
+    private var headerPicture: PictureOfDayModel?
     // MARK: - Computed Properties
     /// флаг для определения маленького экрана
     private var isIPhoneSE: Bool {
@@ -70,6 +71,8 @@ class PictureOfDayVC: UIViewController {
             if let pictures = result {
                 DispatchQueue.main.async {
                     self.pictures = pictures.reversed()
+                    self.headerPicture = self.pictures?[0]
+                    self.pictures?.remove(at: 0)
                     self.collectionView.reloadData()
                 }
             }
@@ -84,14 +87,17 @@ extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PictureOfDayHeader.identifier, for: indexPath) as! PictureOfDayHeader
         
         //TODO:
-        header.configure()
+        if let model = headerPicture {
+            header.configure(with: model)
+        }
+        
         //
         
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return  CGSize(width: view.bounds.width, height: 156)
+        return headerPicture == nil ? .zero : CGSize(width: view.bounds.width, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

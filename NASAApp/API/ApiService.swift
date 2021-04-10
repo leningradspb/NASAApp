@@ -14,7 +14,7 @@ class ApiService {
     func requestGame(completion: @escaping (_ invoiceState: [PictureOfDayModel]?, _ error: String?) -> Void) {
         let calendar = Calendar.current
         let dateFormatter = DateFormatter()
-        let dateMinusMonth = calendar.date(byAdding: .month, value: -1, to: Date())
+        let dateMinusMonth = calendar.date(byAdding: .month, value: -2, to: Date())
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateMinusMonthFormatted = dateFormatter.string(from: dateMinusMonth ?? Date())
         
