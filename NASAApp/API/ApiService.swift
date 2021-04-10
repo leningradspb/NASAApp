@@ -10,8 +10,15 @@ import Foundation
 class ApiService {
     private let apiKey = "poaF8NYvAG221b84cjQcVzKKVzDBpniWSHECVV9C"
     
+    
     func requestGame(completion: @escaping (_ invoiceState: [PictureOfDayModel]?, _ error: String?) -> Void) {
-        let urlString = "https://api.nasa.gov/planetary/apod?start_date=2021-03-10&api_key=\(apiKey)"
+        let calendar = Calendar.current
+        let dateFormatter = DateFormatter()
+        let dateMinusMonth = calendar.date(byAdding: .month, value: -1, to: Date())
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateMinusMonthFormatted = dateFormatter.string(from: dateMinusMonth ?? Date())
+        
+        let urlString = "https://api.nasa.gov/planetary/apod?start_date=\(dateMinusMonthFormatted)&api_key=\(apiKey)"
         let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.configure(.get)
