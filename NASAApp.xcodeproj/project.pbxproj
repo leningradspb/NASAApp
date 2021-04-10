@@ -12,6 +12,7 @@
 		262F299F2621DE1B009528B0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F299E2621DE1B009528B0 /* GradientView.swift */; };
 		262F29A22621DE3B009528B0 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29A12621DE3B009528B0 /* CustomLabel.swift */; };
 		262F29A52621DEF1009528B0 /* PictureOfDayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29A42621DEF1009528B0 /* PictureOfDayHeader.swift */; };
+		262F29AA2621E1E1009528B0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29A92621E1E1009528B0 /* ApiService.swift */; };
 		26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */; };
 		26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */; };
 		26EBADBE2615CE4A00FA31F5 /* PictureOfDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBD2615CE4A00FA31F5 /* PictureOfDayVC.swift */; };
@@ -29,6 +30,7 @@
 		262F299E2621DE1B009528B0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		262F29A12621DE3B009528B0 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		262F29A42621DEF1009528B0 /* PictureOfDayHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayHeader.swift; sourceTree = "<group>"; };
+		262F29A92621E1E1009528B0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		26EBADB62615CE4A00FA31F5 /* NASAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		262F29A82621E1CF009528B0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				262F29A92621E1E1009528B0 /* ApiService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		26EBADAD2615CE4A00FA31F5 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 			children = (
 				26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */,
 				26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */,
+				262F29A82621E1CF009528B0 /* API */,
 				26EBADD42615D3D800FA31F5 /* Modules */,
 				26EBADD72615D3F600FA31F5 /* TabBar */,
 				26EBADDD2615D9A400FA31F5 /* ExtensionsAndHelpers */,
@@ -259,6 +270,7 @@
 			files = (
 				262F299C2621DDC2009528B0 /* PictureOfDayCell.swift in Sources */,
 				262F29A52621DEF1009528B0 /* PictureOfDayHeader.swift in Sources */,
+				262F29AA2621E1E1009528B0 /* ApiService.swift in Sources */,
 				262F29A22621DE3B009528B0 /* CustomLabel.swift in Sources */,
 				26EBADDA2615D40E00FA31F5 /* TabBarNames.swift in Sources */,
 				26EBADBE2615CE4A00FA31F5 /* PictureOfDayVC.swift in Sources */,

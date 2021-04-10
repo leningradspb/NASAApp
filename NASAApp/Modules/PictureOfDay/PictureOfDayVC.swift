@@ -28,16 +28,15 @@ class PictureOfDayVC: UIViewController {
     private var compilationCellWidthAndHeight: CGFloat {
         (view.bounds.width - cellPadding - (inset * 2)) / cellCountPerWidth
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = ThemeService.shared.viewColor
         
-        setupRestaurantCollectionView()
+        setupCollectionView()
     }
     
-    private func setupRestaurantCollectionView()
-    {
+    private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor  = .clear
@@ -74,15 +73,14 @@ extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         return  CGSize(width: view.bounds.width, height: 156)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PictureOfDayCell.identifier, for: indexPath) as? PictureOfDayCell else { return UICollectionViewCell() }
-            cell.backgroundColor = .green
-            return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PictureOfDayCell.identifier, for: indexPath) as? PictureOfDayCell else { return UICollectionViewCell() }
+        cell.backgroundColor = .green
+        return cell
         
     }
     
