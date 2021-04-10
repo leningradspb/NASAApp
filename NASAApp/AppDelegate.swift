@@ -11,13 +11,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        UITabBar.appearance().barTintColor = .black
+        UITabBar.appearance().barTintColor = ThemeService.shared.viewColor
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().unselectedItemTintColor = .gray
-        // ==  ? : .white : .black
-        
         UITabBar.appearance().tintColor = ThemeService.shared.textColor
-        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

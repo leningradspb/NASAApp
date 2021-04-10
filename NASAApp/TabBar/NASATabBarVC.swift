@@ -32,8 +32,11 @@ class NASATabBarVC: UITabBarController {
         
         
         let pictureOfDayVC = PictureOfDayVC()
-        
+        let iconConfig = UIImage.SymbolConfiguration(scale: .large)
+        let gearIcon = UIImage(systemName: "photo.on.rectangle.angled", withConfiguration: iconConfig)
+
         pictureOfDayVC.tabBarItem.title = TabBarNames.pictureOfDay
+        pictureOfDayVC.tabBarItem.image = gearIcon
 //        pictureOfDayVC.tabBarItem.image = UIImage(systemName: "favorite")
         pictureOfDayVC.tabBarItem.tag = 0
         
