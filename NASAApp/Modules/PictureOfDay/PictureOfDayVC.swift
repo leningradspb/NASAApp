@@ -15,6 +15,8 @@ class PictureOfDayVC: UIViewController {
     /// количество ячеек на ширину экрана (по 2)
     private let cellCountPerWidth: CGFloat = 2
     
+    private let apiService = ApiService()
+    private var pictures: [PictureOfDayModel]?
     // MARK: - Computed Properties
     /// флаг для определения маленького экрана
     private var isIPhoneSE: Bool {
@@ -34,6 +36,7 @@ class PictureOfDayVC: UIViewController {
         view.backgroundColor = ThemeService.shared.viewColor
         
         setupCollectionView()
+        loadPicturesOfDay()
     }
     
     private func setupCollectionView() {
@@ -55,6 +58,24 @@ class PictureOfDayVC: UIViewController {
             make.bottom.equalToSuperview().offset(-12)
         }
     }
+    
+    private func loadPicturesOfDay() {
+        apiService.requestGame { [weak self] result, error in
+            guard let self = self else { return }
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let pictures = result {
+                DispatchQueue.main.async {
+                    self.pictures = pictures.reversed()
+                    self.collectionView.reloadData()
+                }
+            }
+//            print(result?.count)
+        }
+    }
 }
 // MARK: - CollectionView Setup (UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout)
 extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -74,12 +95,16 @@ extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return pictures?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PictureOfDayCell.identifier, for: indexPath) as? PictureOfDayCell else { return UICollectionViewCell() }
-        cell.backgroundColor = .green
+        
+        if let pictures = self.pictures {
+            cell.update(with: pictures[indexPath.row])
+        }
+        
         return cell
         
     }
