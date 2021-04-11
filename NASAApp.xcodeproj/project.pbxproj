@@ -14,6 +14,7 @@
 		262F29A52621DEF1009528B0 /* PictureOfDayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29A42621DEF1009528B0 /* PictureOfDayHeader.swift */; };
 		262F29AA2621E1E1009528B0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29A92621E1E1009528B0 /* ApiService.swift */; };
 		262F29AD26220BAA009528B0 /* PictureOfDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29AC26220BAA009528B0 /* PictureOfDayModel.swift */; };
+		26E45015262319130013BBAC /* PictureOfDayDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */; };
 		26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */; };
 		26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */; };
 		26EBADBE2615CE4A00FA31F5 /* PictureOfDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBD2615CE4A00FA31F5 /* PictureOfDayVC.swift */; };
@@ -33,6 +34,7 @@
 		262F29A42621DEF1009528B0 /* PictureOfDayHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayHeader.swift; sourceTree = "<group>"; };
 		262F29A92621E1E1009528B0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		262F29AC26220BAA009528B0 /* PictureOfDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayModel.swift; sourceTree = "<group>"; };
+		26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayDetailVC.swift; sourceTree = "<group>"; };
 		26EBADB62615CE4A00FA31F5 /* NASAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				26EBADBD2615CE4A00FA31F5 /* PictureOfDayVC.swift */,
+				26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */,
 				262F29A42621DEF1009528B0 /* PictureOfDayHeader.swift */,
 				262F299B2621DDC2009528B0 /* PictureOfDayCell.swift */,
 				262F29AC26220BAA009528B0 /* PictureOfDayModel.swift */,
@@ -273,6 +276,7 @@
 			files = (
 				262F29AD26220BAA009528B0 /* PictureOfDayModel.swift in Sources */,
 				262F299C2621DDC2009528B0 /* PictureOfDayCell.swift in Sources */,
+				26E45015262319130013BBAC /* PictureOfDayDetailVC.swift in Sources */,
 				262F29A52621DEF1009528B0 /* PictureOfDayHeader.swift in Sources */,
 				262F29AA2621E1E1009528B0 /* ApiService.swift in Sources */,
 				262F29A22621DE3B009528B0 /* CustomLabel.swift in Sources */,

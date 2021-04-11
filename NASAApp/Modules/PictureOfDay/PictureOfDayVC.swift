@@ -40,6 +40,11 @@ class PictureOfDayVC: UIViewController {
         loadPicturesOfDay()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -76,7 +81,6 @@ class PictureOfDayVC: UIViewController {
                     self.collectionView.reloadData()
                 }
             }
-//            print(result?.count)
         }
     }
 }
@@ -86,13 +90,10 @@ extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PictureOfDayHeader.identifier, for: indexPath) as! PictureOfDayHeader
         
-        //TODO:
         if let model = headerPicture {
             header.configure(with: model)
         }
-        
-        //
-        
+    
         return header
     }
     
@@ -113,6 +114,12 @@ extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let pictureModel = pictures?[indexPath.row] else { return }
+        let vc = PictureOfDayDetailVC(pictureOfDayModel: pictureModel)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

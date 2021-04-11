@@ -30,8 +30,9 @@ class NASATabBarVC: UITabBarController {
     private func setupTabBar() {
         var tabBarList: [UIViewController]!
         
-        
+        let pictureNC = UINavigationController()
         let pictureOfDayVC = PictureOfDayVC()
+        pictureNC.viewControllers = [pictureOfDayVC]
         let iconConfig = UIImage.SymbolConfiguration(scale: .large)
         let gearIcon = UIImage(systemName: "photo.on.rectangle.angled", withConfiguration: iconConfig)
 
@@ -67,7 +68,7 @@ class NASATabBarVC: UITabBarController {
 //        profileVC.tabBarItem.image = UIImage(named: TabBarNames.profileIcon)
 //        profileVC.tabBarItem.tag = 4
         
-        tabBarList = [pictureOfDayVC]
+        tabBarList = [pictureNC]
         viewControllers = tabBarList
     }
 }
