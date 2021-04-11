@@ -14,7 +14,7 @@ class PictureOfDayVC: UIViewController {
     private let inset: CGFloat = 16
     /// количество ячеек на ширину экрана (по 2)
     private let cellCountPerWidth: CGFloat = 2
-    
+    private let activity = UIActivityIndicatorView(style: .medium)
     private let apiService = ApiService()
     private var pictures: [PictureOfDayModel]?
     private var headerPicture: PictureOfDayModel?
@@ -35,7 +35,7 @@ class PictureOfDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = ThemeService.shared.viewColor
-        
+        setupActivity()
         setupCollectionView()
         loadPicturesOfDay()
     }
@@ -43,6 +43,15 @@ class PictureOfDayVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func setupActivity() {
+        view.addSubview(activity)
+        
+        activity.snp.makeConstraints { (make) in
+            make.centerX.centerY.equalToSuperview()
+            make.width.height.equalTo(100)
+        }
     }
     
     private func setupCollectionView() {
@@ -66,10 +75,12 @@ class PictureOfDayVC: UIViewController {
     }
     
     private func loadPicturesOfDay() {
+        activity.startAnimating()
         apiService.requestGame { [weak self] result, error in
             guard let self = self else { return }
             if let error = error {
                 print(error)
+                self.activity.stopAnimating()
                 return
             }
             
@@ -78,6 +89,7 @@ class PictureOfDayVC: UIViewController {
                     self.pictures = pictures.reversed()
                     self.headerPicture = self.pictures?[0]
                     self.pictures?.remove(at: 0)
+                    self.activity.stopAnimating()
                     self.collectionView.reloadData()
                 }
             }
