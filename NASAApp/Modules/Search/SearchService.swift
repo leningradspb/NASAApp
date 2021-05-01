@@ -22,7 +22,7 @@ class SearchService : PaginatedService<Item> {
         }
         
         isLoading = true
-        apiService.search(keywords: keywords) { [weak self] result, error in
+        apiService.search(keywords: keywords, page: currentPage) { [weak self] result, error in
             guard let self = self else { return }
             print(result?.collection?.items?.count, result?.collection?.metadata?.total_hits)
             self.model = result
