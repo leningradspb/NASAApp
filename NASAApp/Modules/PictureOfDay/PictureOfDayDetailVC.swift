@@ -12,6 +12,8 @@ class PictureOfDayDetailVC: UIViewController {
     private let imageView = UIImageView()
     private var pictureOfDayModel: PictureOfDayModel!
     private var isInitialLoad = true
+    private let navigationBarBackgroundView = UIView()
+    private let pointOfAppearance: CGFloat = -70
     
     init(pictureOfDayModel: PictureOfDayModel) {
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +40,7 @@ class PictureOfDayDetailVC: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
         self.navigationController?.navigationBar.tintColor = .white
+        addNavigationBarBackgroundView()
     }
     
     private func setupTableView() {
@@ -63,6 +66,20 @@ class PictureOfDayDetailVC: UIViewController {
         view.addSubview(imageView)
         tableView.contentInset = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
     }
+    
+    private func addNavigationBarBackgroundView() {
+        navigationBarBackgroundView.backgroundColor = .black
+        navigationBarBackgroundView.alpha = 0
+        self.view.addSubview(navigationBarBackgroundView)
+        let guide = self.view.safeAreaLayoutGuide
+        navigationBarBackgroundView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalTo(guide.snp.top)
+        }
+//        navigationBarBackgroundView.isHidden = tableView.contentOffset.y > 245 ? false : true
+    }
 }
 
 extension PictureOfDayDetailVC: UITableViewDelegate, UITableViewDataSource {
@@ -83,5 +100,20 @@ extension PictureOfDayDetailVC: UITableViewDelegate, UITableViewDataSource {
             return
         }
         imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: -offset)
+        
+        if offset > pointOfAppearance {
+//            navigationBarBackgroundView.isHidden = false
+            
+            if navigationItem.title != "\(pictureOfDayModel.title ?? "")" {
+                navigationItem.title = "\(pictureOfDayModel.title ?? "")"
+            }
+            navigationBarBackgroundView.alpha = 1
+        } else {
+//            navigationBarBackgroundView.isHidden = true
+            if navigationItem.title != "" {
+                navigationItem.title = ""
+            }
+            navigationBarBackgroundView.alpha = (1 - (offset / -300))
+        }
     }
 }
