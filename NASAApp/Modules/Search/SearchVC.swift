@@ -29,7 +29,7 @@ class SearchVC: UIViewController {
             service.reset()
         }
         
-        service.search(keywords: "") { (isPaging) in
+        service.search(keywords: "sun star") { (isPaging) in
             
         }
     }

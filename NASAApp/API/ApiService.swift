@@ -53,8 +53,9 @@ class ApiService {
     }
     
     func search(keywords: String?, page: Int, completion: @escaping (_ result: SearchModel?, _ error: String?) -> Void) {
-        
-        let urlString = "https://images-api.nasa.gov/search?keywords=sun&media_type=image&page=\(page)"
+        let words = keywords?.replacingOccurrences(of: " ", with: ",") ?? ""
+        print(words)
+        let urlString = "https://images-api.nasa.gov/search?keywords=\(words)&media_type=image&page=\(page)"
         let url = URL(string: urlString)!
         var request = URLRequest(url: url)
         request.configure(.get)
