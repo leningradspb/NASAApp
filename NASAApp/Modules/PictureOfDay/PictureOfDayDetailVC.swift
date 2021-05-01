@@ -39,7 +39,7 @@ class PictureOfDayDetailVC: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = ThemeService.shared.textColor
         addNavigationBarBackgroundView()
     }
     
@@ -68,7 +68,7 @@ class PictureOfDayDetailVC: UIViewController {
     }
     
     private func addNavigationBarBackgroundView() {
-        navigationBarBackgroundView.backgroundColor = .black
+        navigationBarBackgroundView.backgroundColor = ThemeService.shared.viewColor
         navigationBarBackgroundView.alpha = 0
         self.view.addSubview(navigationBarBackgroundView)
         let guide = self.view.safeAreaLayoutGuide
