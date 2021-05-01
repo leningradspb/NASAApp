@@ -95,12 +95,22 @@ class PictureOfDayVC: UIViewController {
             }
         }
     }
+    
+    @objc private func headerTapped() {
+        guard let pictureModel = headerPicture else { return }
+        let vc = PictureOfDayDetailVC(pictureOfDayModel: pictureModel)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 // MARK: - CollectionView Setup (UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout)
 extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PictureOfDayHeader.identifier, for: indexPath) as! PictureOfDayHeader
+        
+        if header.gestureRecognizers == nil {
+            setupTapRecognizer(for: header, action: #selector(headerTapped))
+        }
         
         if let model = headerPicture {
             header.configure(with: model)
@@ -150,4 +160,20 @@ extension PictureOfDayVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
     
+}
+
+
+extension UIViewController
+{
+    func setupTapRecognizer(for view: UIView, action: Selector?)
+    {
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: action)
+        
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(singleTapGestureRecognizer)
+    }
 }

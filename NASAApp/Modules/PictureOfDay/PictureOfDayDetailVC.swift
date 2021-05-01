@@ -11,6 +11,7 @@ class PictureOfDayDetailVC: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private let imageView = UIImageView()
     private var pictureOfDayModel: PictureOfDayModel!
+    private var isInitialLoad = true
     
     init(pictureOfDayModel: PictureOfDayModel) {
         super.init(nibName: nil, bundle: nil)
@@ -36,6 +37,7 @@ class PictureOfDayDetailVC: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     private func setupTableView() {
@@ -50,23 +52,20 @@ class PictureOfDayDetailVC: UIViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-}
-
-extension PictureOfDayDetailVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let url = URL(string: pictureOfDayModel.url ?? "")
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: url, options: [.transition(.fade(0.2))])
         imageView.contentMode = .scaleAspectFill
-        return imageView
+        
+        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 300)
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
+        tableView.contentInset = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        400
-    }
-    
+}
+
+extension PictureOfDayDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
@@ -75,5 +74,14 @@ extension PictureOfDayDetailVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: PictureOfDayDetailCell.identifier, for: indexPath) as! PictureOfDayDetailCell
         cell.update(with: pictureOfDayModel)
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if isInitialLoad {
+            isInitialLoad = false
+            return
+        }
+        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: -offset)
     }
 }
