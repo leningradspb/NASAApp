@@ -16,6 +16,9 @@
 		262F29AD26220BAA009528B0 /* PictureOfDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F29AC26220BAA009528B0 /* PictureOfDayModel.swift */; };
 		263A800C262345F40040B69F /* PictureOfDayDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A800B262345F40040B69F /* PictureOfDayDetailCell.swift */; };
 		2651FAE5263D789B00527144 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAE4263D789B00527144 /* SearchVC.swift */; };
+		2651FAE8263D7D3800527144 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAE7263D7D3800527144 /* SearchModels.swift */; };
+		2651FAEB263D817C00527144 /* PaginatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAEA263D817C00527144 /* PaginatedService.swift */; };
+		2651FAEE263D825300527144 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAED263D825300527144 /* SearchService.swift */; };
 		26E45015262319130013BBAC /* PictureOfDayDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */; };
 		26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */; };
 		26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */; };
@@ -38,6 +41,9 @@
 		262F29AC26220BAA009528B0 /* PictureOfDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayModel.swift; sourceTree = "<group>"; };
 		263A800B262345F40040B69F /* PictureOfDayDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayDetailCell.swift; sourceTree = "<group>"; };
 		2651FAE4263D789B00527144 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		2651FAE7263D7D3800527144 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		2651FAEA263D817C00527144 /* PaginatedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedService.swift; sourceTree = "<group>"; };
+		2651FAED263D825300527144 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayDetailVC.swift; sourceTree = "<group>"; };
 		26EBADB62615CE4A00FA31F5 /* NASAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				2651FAE4263D789B00527144 /* SearchVC.swift */,
+				2651FAE7263D7D3800527144 /* SearchModels.swift */,
+				2651FAED263D825300527144 /* SearchService.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 				262F29982621DD92009528B0 /* Extensions.swift */,
 				262F299E2621DE1B009528B0 /* GradientView.swift */,
 				262F29A12621DE3B009528B0 /* CustomLabel.swift */,
+				2651FAEA263D817C00527144 /* PaginatedService.swift */,
 			);
 			path = ExtensionsAndHelpers;
 			sourceTree = "<group>";
@@ -290,15 +299,18 @@
 			files = (
 				262F29AD26220BAA009528B0 /* PictureOfDayModel.swift in Sources */,
 				262F299C2621DDC2009528B0 /* PictureOfDayCell.swift in Sources */,
+				2651FAE8263D7D3800527144 /* SearchModels.swift in Sources */,
 				26E45015262319130013BBAC /* PictureOfDayDetailVC.swift in Sources */,
 				262F29A52621DEF1009528B0 /* PictureOfDayHeader.swift in Sources */,
 				262F29AA2621E1E1009528B0 /* ApiService.swift in Sources */,
 				262F29A22621DE3B009528B0 /* CustomLabel.swift in Sources */,
 				26EBADDA2615D40E00FA31F5 /* TabBarNames.swift in Sources */,
 				26EBADBE2615CE4A00FA31F5 /* PictureOfDayVC.swift in Sources */,
+				2651FAEB263D817C00527144 /* PaginatedService.swift in Sources */,
 				2651FAE5263D789B00527144 /* SearchVC.swift in Sources */,
 				26EBADD12615D33A00FA31F5 /* NASATabBarVC.swift in Sources */,
 				263A800C262345F40040B69F /* PictureOfDayDetailCell.swift in Sources */,
+				2651FAEE263D825300527144 /* SearchService.swift in Sources */,
 				26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */,
 				26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */,
 				26EBADDF2615D9C000FA31F5 /* ThemeService.swift in Sources */,
