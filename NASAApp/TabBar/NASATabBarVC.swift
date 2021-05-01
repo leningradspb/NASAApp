@@ -41,6 +41,17 @@ class NASATabBarVC: UITabBarController {
 //        pictureOfDayVC.tabBarItem.image = UIImage(systemName: "favorite")
         pictureOfDayVC.tabBarItem.tag = 0
         
+        let searchNC = UINavigationController()
+        let searchVC = SearchVC()
+        searchNC.viewControllers = [searchVC]
+        
+        let searchIcon = UIImage(systemName: "magnifyingglass", withConfiguration: iconConfig)
+
+        searchVC.tabBarItem.title = TabBarNames.search
+        searchVC.tabBarItem.image = searchIcon
+//        pictureOfDayVC.tabBarItem.image = UIImage(systemName: "favorite")
+        searchVC.tabBarItem.tag = 1
+        
         //let storyboard2 = UIStoryboard(name: ConstantsNames.AllSitters, bundle: nil)
 //        let storyboardAdverts = UIStoryboard(name: ConstantsNames.ParentsAdverts, bundle: nil)
 //        let parentsAdverts = storyboardAdverts.instantiateViewController(withIdentifier: ConstantsNames.ParentsAdverts)
@@ -68,7 +79,7 @@ class NASATabBarVC: UITabBarController {
 //        profileVC.tabBarItem.image = UIImage(named: TabBarNames.profileIcon)
 //        profileVC.tabBarItem.tag = 4
         
-        tabBarList = [pictureNC]
+        tabBarList = [pictureNC, searchNC]
         viewControllers = tabBarList
     }
 }

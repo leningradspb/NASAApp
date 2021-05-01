@@ -9,4 +9,5 @@ import Foundation
 
 struct TabBarNames {
     static let pictureOfDay = "Фото дня"
+    static let search = "Поиск"
 }
