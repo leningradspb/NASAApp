@@ -10,7 +10,7 @@ import UIKit
 class SearchService : PaginatedService<Item> {
     
     private let apiService = ApiService()
-    var model: SearchModel?
+    private var model: SearchModel?
     
     var total: Int {
         return model?.collection?.metadata?.total_hits ?? 0
@@ -25,7 +25,8 @@ class SearchService : PaginatedService<Item> {
         apiService.search(keywords: keywords, page: currentPage) { [weak self] result, error in
             guard let self = self else { return }
             print(result?.collection?.items?.count, result?.collection?.metadata?.total_hits)
-            self.model = result
+                self.model = result
+            
             self.load(items: result?.collection?.items, completion: completion)
         }
         

@@ -19,6 +19,7 @@
 		2651FAE8263D7D3800527144 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAE7263D7D3800527144 /* SearchModels.swift */; };
 		2651FAEB263D817C00527144 /* PaginatedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAEA263D817C00527144 /* PaginatedService.swift */; };
 		2651FAEE263D825300527144 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2651FAED263D825300527144 /* SearchService.swift */; };
+		268C41EE26FB43EE00B67894 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268C41ED26FB43EE00B67894 /* SearchCell.swift */; };
 		26E45015262319130013BBAC /* PictureOfDayDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */; };
 		26EBADBA2615CE4A00FA31F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */; };
 		26EBADBC2615CE4A00FA31F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBADBB2615CE4A00FA31F5 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		2651FAE7263D7D3800527144 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		2651FAEA263D817C00527144 /* PaginatedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedService.swift; sourceTree = "<group>"; };
 		2651FAED263D825300527144 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		268C41ED26FB43EE00B67894 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		26E45014262319130013BBAC /* PictureOfDayDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOfDayDetailVC.swift; sourceTree = "<group>"; };
 		26EBADB62615CE4A00FA31F5 /* NASAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EBADB92615CE4A00FA31F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				2651FAE4263D789B00527144 /* SearchVC.swift */,
 				2651FAE7263D7D3800527144 /* SearchModels.swift */,
 				2651FAED263D825300527144 /* SearchService.swift */,
+				268C41ED26FB43EE00B67894 /* SearchCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				262F29AD26220BAA009528B0 /* PictureOfDayModel.swift in Sources */,
+				268C41EE26FB43EE00B67894 /* SearchCell.swift in Sources */,
 				262F299C2621DDC2009528B0 /* PictureOfDayCell.swift in Sources */,
 				2651FAE8263D7D3800527144 /* SearchModels.swift in Sources */,
 				26E45015262319130013BBAC /* PictureOfDayDetailVC.swift in Sources */,

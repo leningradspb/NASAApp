@@ -22,7 +22,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        search(isInitial: true)
+        search(isInitial: true)
         setupSearchBar()
         setupTableView()
     }
@@ -31,6 +31,9 @@ class SearchVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.prefetchDataSource = self
+        tableView.backgroundColor = ThemeService.shared.viewColor
+        tableView.separatorStyle = .none
+        tableView.register(SearchCell.self, forCellReuseIdentifier: SearchCell.identifier)
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -46,8 +49,11 @@ class SearchVC: UIViewController {
             service.reset()
         }
         
-        service.search(keywords: keywords) { (isPaging) in
-            
+        service.search(keywords: keywords) { [weak self] isPaging in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -83,13 +89,28 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.identifier, for: indexPath) as! SearchCell
+        
+//        service.model?.collection?.items
+        let items = service.collection
+        if indexPath.row < items.count {
+            let item = items[indexPath.row]
+            let data = item.data?.first
+            let link = item.links?.first?.href
+            let model = PictureOfDayModel(copyright: nil, date: nil, explanation: data?.description, url: link, title: data?.title)
+            cell.configure(with: model)
+        }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if service.isNeedLoading(indexPaths: indexPaths) {
             search(isInitial: false)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        200
     }
 }
 
@@ -122,7 +143,7 @@ extension SearchVC: UISearchBarDelegate {
         }
 
         pendingRequestWorkItem = requestWorkItem
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(350),
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(550),
                                       execute: requestWorkItem)
     }
     
