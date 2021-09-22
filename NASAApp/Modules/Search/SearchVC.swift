@@ -21,7 +21,7 @@ class SearchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = ThemeService.shared.viewColor
         search(isInitial: true)
         setupSearchBar()
         setupTableView()
