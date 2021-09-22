@@ -56,7 +56,7 @@ class ApiService {
         let words = keywords?.replacingOccurrences(of: " ", with: ",") ?? ""
         print(words)
         let urlString = "https://images-api.nasa.gov/search?keywords=\(words)&media_type=image&page=\(page)"
-        let url = URL(string: urlString)!
+        guard let url = URL(string: urlString) else {return}
         var request = URLRequest(url: url)
         request.configure(.get)
 
